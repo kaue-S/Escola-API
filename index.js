@@ -1,9 +1,10 @@
 import express from "express";
 import { ler, inserir, lerUm, atualizar, excluir } from './src/aluno.js';
+import conexao from "./src/banco.js";
 
 
 const app = express();
-const porta = 8080;
+const porta = process.env.PORT || 3306;
 
 //adicionando suporte ao formato json
 app.use(express.json());
