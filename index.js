@@ -1,5 +1,5 @@
 import express from "express";
-import { ler, inserir } from './src/aluno.js';
+import { ler, inserir, lerUm, atualizar, excluir } from './src/aluno.js';
 
 
 const app = express();
@@ -28,7 +28,9 @@ app.get('/alunos', (req, res) => {
 
 //exibindo dados de um aluno
 app.get('/alunos/:id', (req, res) => {
-    res.send(`Um aluno`);
+    // res.send(`Um aluno`);
+    const id = parseInt(req.params.id);
+    lerUm(id, res);
 });
 
 
@@ -41,7 +43,10 @@ app.post('/alunos', (req, res) => {
 
 //Atualizando dados de um aluno
 app.patch('/alunos/:id', (req, res) => {
-    res.send(`Atualizando dados de um aluno`);
+    // res.send(`Atualizando dados de um aluno`);
+    const id = parseInt(req.params.id);
+    const aluno = req.body;
+    atualizar(id, aluno, res);
 });
 
 //exibindo dados de um aluno
@@ -52,7 +57,9 @@ app.get('/alunos/:id', (req, res) => {
 
 //excluindo alunos
 app.delete('/alunos/:id', (req, res) => {
-    res.send(`Excluindo um aluno`)
+    // res.send(`Excluindo um aluno`)
+    const id = parseInt(req.params.id);
+    excluir(id, res);
 });
 
 
