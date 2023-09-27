@@ -20,6 +20,8 @@ app.use(express.urlencoded({ extended : true}));
 
 app.get('/', (req, res) => {
     res.send(`Raiz da API NodeJS + Express + My SQL`);
+    res.redirect(`https://documenter.getpostman.com/view/29885657/2s9YJZ34YQ`);
+     
 });
 
 //exibindo todos os alunos
